@@ -37,12 +37,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        replaceFragment(this.currentFragment);
+        replaceFragment(this.currentFragment)
         super.onResume()
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        this.currentFragment = fragment;
+        this.currentFragment = fragment
         val fragmentManager = this.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, fragment)
