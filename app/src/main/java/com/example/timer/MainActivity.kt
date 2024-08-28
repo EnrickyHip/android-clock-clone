@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import com.example.timer.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -23,23 +22,23 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        this.replaceFragment(ClockFragment());
+        this.replaceFragment(ClockFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.timer -> this.replaceFragment(TimerFragment())
                 R.id.stopwatch -> this.replaceFragment(StopwatchFragment())
                 R.id.clock -> this.replaceFragment(ClockFragment())
-            };
+            }
 
-            return@setOnItemSelectedListener true;
+            return@setOnItemSelectedListener true
         }
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = this.supportFragmentManager;
-        val fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frameLayout, fragment);
-        fragmentTransaction.commit();
+        val fragmentManager = this.supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frameLayout, fragment)
+        fragmentTransaction.commit()
     }
 }

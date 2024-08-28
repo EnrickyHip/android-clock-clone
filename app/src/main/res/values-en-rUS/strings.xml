@@ -9,4 +9,19 @@
     <string name="minutes_letter">m</string>
     <string name="seconds_letter">s</string>
     <string name="timer_format">%03d:%02d:%02d</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="_0">0</string>
+    <string name="backspace_button">Backspace</string>
+    <string name="play_timer">Play timer</string>
+    <string name="reset_timer">Reset timer</string>
+    <string name="reset_stopwatch">Reset stopwatch</string>
+    <string name="play_stopwatch">Play stopwatch</string>
 </resources>

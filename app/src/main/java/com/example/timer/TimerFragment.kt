@@ -80,8 +80,8 @@ class TimerFragment : Fragment() {
         this.timerTextView = view.findViewById(R.id.timerTextView)
         this.timerTitleView = view.findViewById(R.id.timerTitle)
 
-        this.playButton = view.findViewById(R.id.stopWatchPlayButton)
-        this.resetButton = view.findViewById(R.id.resetStopwatchButton)
+        this.playButton = view.findViewById(R.id.timerPlayButton)
+        this.resetButton = view.findViewById(R.id.resetTimerButton)
         this.backspaceButton = view.findViewById(R.id.backspaceButton)
 
         this.numericKeyboardGridLayout = view.findViewById(R.id.numericKeyboardGridLayout)
@@ -108,12 +108,12 @@ class TimerFragment : Fragment() {
         this.updateInputTimerText()
 
         this.resetButton.visibility = View.GONE
-        this.timerTextView.visibility = View.GONE;
-        this.timerTitleView.visibility = View.GONE;
+        this.timerTextView.visibility = View.GONE
+        this.timerTitleView.visibility = View.GONE
 
         this.playButton.setOnClickListener {
             if (this.seconds == 0 && this.minutes == 0 && this.hours == 0) {
-                return@setOnClickListener;
+                return@setOnClickListener
             }
 
             this.running = !this.running
@@ -138,7 +138,7 @@ class TimerFragment : Fragment() {
     private fun reset() {
         this.editing = true
         this.running = false
-        this.numericKeyboardGridLayout.visibility = View.VISIBLE;
+        this.numericKeyboardGridLayout.visibility = View.VISIBLE
         this.handleVisibility()
         this.handler.removeCallbacks(this.updateTimerRunnable)
         this.playButton.setImageResource(R.drawable.baseline_play_circle_24)
@@ -146,8 +146,8 @@ class TimerFragment : Fragment() {
 
     private fun play() {
         if (this.editing) {
-            this.elapsedTime = System.currentTimeMillis().toInt();
-            this.numericKeyboardGridLayout.visibility = View.GONE;
+            this.elapsedTime = System.currentTimeMillis().toInt()
+            this.numericKeyboardGridLayout.visibility = View.GONE
             this.handleVisibility()
         } else {
             this.elapsedTime = System.currentTimeMillis().toInt() - this.elapsedTime
@@ -202,39 +202,39 @@ class TimerFragment : Fragment() {
 
     private fun typeNumber(number: Int) {
         if (this.seconds == 0 && this.minutes == 0 && this.hours == 0) {
-            this.seconds = number;
-            return this.updateInputTimerText();
+            this.seconds = number
+            return this.updateInputTimerText()
         }
 
         if (this.seconds < 10 && this.minutes == 0 && this.hours == 0) {
-            this.seconds = (this.seconds * 10) + number;
-            return this.updateInputTimerText();
+            this.seconds = (this.seconds * 10) + number
+            return this.updateInputTimerText()
         }
 
         if (this.minutes == 0 && this.hours == 0) {
-            this.minutes = this.seconds / 10;
-            this.seconds = ((this.seconds % 10) * 10) + number;
-            return this.updateInputTimerText();
+            this.minutes = this.seconds / 10
+            this.seconds = ((this.seconds % 10) * 10) + number
+            return this.updateInputTimerText()
         }
 
         if (this.minutes < 10 && this.hours == 0) {
-            this.minutes = (this.minutes * 10) + (this.seconds / 10);
-            this.seconds = ((this.seconds % 10) * 10) + number;
-            return this.updateInputTimerText();
+            this.minutes = (this.minutes * 10) + (this.seconds / 10)
+            this.seconds = ((this.seconds % 10) * 10) + number
+            return this.updateInputTimerText()
         }
 
         if (this.hours == 0) {
-            this.hours = this.minutes / 10;
-            this.minutes = ((this.minutes % 10) * 10) + (this.seconds / 10);
-            this.seconds = ((this.seconds % 10) * 10) + number;
-            return this.updateInputTimerText();
+            this.hours = this.minutes / 10
+            this.minutes = ((this.minutes % 10) * 10) + (this.seconds / 10)
+            this.seconds = ((this.seconds % 10) * 10) + number
+            return this.updateInputTimerText()
         }
 
         if (this.hours < 10) {
-            this.hours = (this.hours * 10) + (this.minutes / 10);
-            this.minutes = ((this.minutes % 10) * 10) + (this.seconds / 10);
-            this.seconds = ((this.seconds % 10) * 10) + number;
-            return this.updateInputTimerText();
+            this.hours = (this.hours * 10) + (this.minutes / 10)
+            this.minutes = ((this.minutes % 10) * 10) + (this.seconds / 10)
+            this.seconds = ((this.seconds % 10) * 10) + number
+            return this.updateInputTimerText()
         }
     }
 
@@ -249,23 +249,23 @@ class TimerFragment : Fragment() {
         val minutes = TimeUnit.MILLISECONDS.toMinutes(this.timeRemaining.toLong()).toInt() % 60
         val seconds = TimeUnit.MILLISECONDS.toSeconds(this.timeRemaining.toLong()).toInt() % 60
 
-        val ninetyNineHours = 99 * 60 * 60 * 1000;
+        val ninetyNineHours = 99 * 60 * 60 * 1000
         val format = if (getTotalTimeInMillis().toLong() > ninetyNineHours) {
             R.string.timer_format
         } else {
             R.string.time_format
-        };
+        }
 
         val formattedTime = getString(format, hours, minutes, seconds)
-        this.timerTextView.text = formattedTime;
+        this.timerTextView.text = formattedTime
     }
 
     private fun getTotalTimeInMillis(): Int {
-        val secondsInMillis = this.seconds * 1000;
-        val minutesInMillis = this.minutes * 60 * 1000;
-        val hoursInMillis = this.hours * 60 * 60 * 1000;
+        val secondsInMillis = this.seconds * 1000
+        val minutesInMillis = this.minutes * 60 * 1000
+        val hoursInMillis = this.hours * 60 * 60 * 1000
 
-        return secondsInMillis + minutesInMillis + hoursInMillis;
+        return secondsInMillis + minutesInMillis + hoursInMillis
     }
 
     private fun playAlarm() {

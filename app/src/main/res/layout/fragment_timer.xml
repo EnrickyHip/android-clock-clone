@@ -37,7 +37,8 @@
         android:text="@string/seconds_letter"
         android:textColorLink="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/secondsTextView"
-        app:layout_constraintStart_toEndOf="@+id/secondsTextView" />
+        app:layout_constraintStart_toEndOf="@+id/secondsTextView"
+        tools:ignore="TextSizeCheck" />
 
     <TextView
         android:id="@+id/minutesLetter"
@@ -111,15 +112,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Number Buttons (0-9) -->
         <Button
             android:id="@+id/button1"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:background="@drawable/rounded_button_background"
-            android:text="1"
-            android:textSize="30dp"/>
+            android:text="@string/_1"
+            android:textSize="30sp"/>
 
         <Button
             android:id="@+id/button2"
@@ -127,8 +127,8 @@
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:background="@drawable/rounded_button_background"
-            android:textSize="30dp"
-            android:text="2" />
+            android:textSize="30sp"
+            android:text="@string/_2" />
 
         <Button
             android:id="@+id/button3"
@@ -136,8 +136,8 @@
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:background="@drawable/rounded_button_background"
-            android:textSize="30dp"
-            android:text="3" />
+            android:textSize="30sp"
+            android:text="@string/_3" />
 
         <Button
             android:id="@+id/button4"
@@ -145,8 +145,8 @@
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:background="@drawable/rounded_button_background"
-            android:textSize="30dp"
-            android:text="4" />
+            android:textSize="30sp"
+            android:text="@string/_4" />
 
         <Button
             android:id="@+id/button5"
@@ -154,8 +154,8 @@
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:background="@drawable/rounded_button_background"
-            android:textSize="30dp"
-            android:text="5" />
+            android:textSize="30sp"
+            android:text="@string/_5" />
 
         <Button
             android:id="@+id/button6"
@@ -163,8 +163,8 @@
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:background="@drawable/rounded_button_background"
-            android:textSize="30dp"
-            android:text="6" />
+            android:textSize="30sp"
+            android:text="@string/_6" />
 
         <Button
             android:id="@+id/button7"
@@ -172,8 +172,8 @@
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:background="@drawable/rounded_button_background"
-            android:textSize="30dp"
-            android:text="7" />
+            android:textSize="30sp"
+            android:text="@string/_7" />
 
         <Button
             android:id="@+id/button8"
@@ -181,8 +181,8 @@
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:background="@drawable/rounded_button_background"
-            android:textSize="30dp"
-            android:text="8" />
+            android:textSize="30sp"
+            android:text="@string/_8" />
 
         <Button
             android:id="@+id/button9"
@@ -190,18 +190,17 @@
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:background="@drawable/rounded_button_background"
-            android:textSize="30dp"
-            android:text="9" />
+            android:textSize="30sp"
+            android:text="@string/_9" />
 
         <!-- Empty Button for layout alignment -->
         <Button
-            android:id="@+id/btnEmpty"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:visibility="invisible"
             android:background="@drawable/rounded_button_background"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:text="" />
 
         <Button
@@ -210,27 +209,28 @@
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:background="@drawable/rounded_button_background"
-            android:textSize="30dp"
-            android:text="0" />
+            android:textSize="30sp"
+            android:text="@string/_0" />
 
-        <!-- Backspace Button -->
         <ImageButton
             android:id="@+id/backspaceButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_margin="6dp"
             android:background="@drawable/rounded_button_background"
-            android:textSize="30dp"
+            android:contentDescription="@string/backspace_button"
+            android:textSize="30sp"
             android:src="@drawable/baseline_backspace_24"
              />
     </GridLayout>
 
     <ImageButton
-        android:id="@+id/stopWatchPlayButton"
+        android:id="@+id/timerPlayButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_margin="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/play_timer"
         android:src="@drawable/baseline_play_circle_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -238,16 +238,17 @@
         app:layout_constraintTop_toBottomOf="@+id/numericKeyboardGridLayout" />
 
     <ImageButton
-        android:id="@+id/resetStopwatchButton"
+        android:id="@+id/resetTimerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_button"
+        android:contentDescription="@string/reset_timer"
         android:src="@drawable/baseline_restart_alt_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toEndOf="@+id/stopWatchPlayButton"
+        app:layout_constraintStart_toEndOf="@+id/timerPlayButton"
         app:layout_constraintTop_toBottomOf="@+id/numericKeyboardGridLayout"
         app:layout_constraintVertical_bias="0.501" />
 
