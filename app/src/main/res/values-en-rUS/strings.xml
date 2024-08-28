@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Clock</string>
+    <string name="timer">Timer</string>
+    <string name="stop_watch">Stopwatch</string>
+    <string name="time_format">%02d:%02d:%02d</string>
+    <string name="digits">%02d</string>
+    <string name="hours_letter">h</string>
+    <string name="minutes_letter">m</string>
+    <string name="seconds_letter">s</string>
+    <string name="timer_format">%03d:%02d:%02d</string>
+</resources>
