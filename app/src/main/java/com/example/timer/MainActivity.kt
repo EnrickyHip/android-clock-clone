@@ -9,8 +9,9 @@ import androidx.fragment.app.Fragment
 import com.example.timer.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    private lateinit var  currentFragment: Fragment
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         val binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
         super.onCreate(savedInstanceState)
@@ -35,7 +36,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        replaceFragment(this.currentFragment);
+        super.onResume()
+    }
+
     private fun replaceFragment(fragment: Fragment) {
+        this.currentFragment = fragment;
         val fragmentManager = this.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, fragment)
